@@ -1,0 +1,64 @@
+﻿@model Phoenix.SolvedTest.ViewModels.Product.Create
+
+
+@{
+    Layout = null;
+}
+
+
+<div class="modal-header ibox-title">
+    <h5 class="modal-title titr " id="formModal">ایجاد محصول جدید</h5>
+    <hr />
+</div>
+
+<form asp-controller="Product" asp-action="Create" enctype="multipart/form-data" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="form-line">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="form-line">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-info waves-effect">ذخیره</button>
+        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">لغو</button>
+    </div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

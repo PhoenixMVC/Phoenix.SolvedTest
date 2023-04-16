@@ -1,0 +1,83 @@
+﻿@model Phoenix.SolvedTest.ViewModels.Price.UpdatePrice
+
+
+@{
+    Layout = null;
+}
+
+<div class="modal-header ibox-title">
+    <h5 class="modal-title titr " id="formModal">قیمت روزانه</h5>
+    <hr />
+</div>
+
+<form asp-controller="Price" asp-action="UpdatePrice" enctype="multipart/form-data" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <input asp-for="ProductId" class="form-control" value="@ViewBag.ProductId" hidden />
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="form-line">
+                        <label asp-for="SalesPrice" class="control-label"></label>
+                        <input asp-for="SalesPrice" class="form-control " 
+                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                               onkeyup="javascript:this.value=itpro(this.value);" 
+                               style="direction:ltr" />
+                        <span asp-validation-for="SalesPrice" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-info waves-effect">ذخیره</button>
+        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">لغو</button>
+    </div>
+
+
+</form>
+
+
+<script src="~/js/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    function itpro(Number) {
+        Number += '';
+        Number = Number.replace(',', ''); Number = Number.replace(',', ''); Number = Number.replace(',', '');
+        Number = Number.replace(',', ''); Number = Number.replace(',', ''); Number = Number.replace(',', '');
+        x = Number.split('.');
+        y = x[0];
+        z = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(y))
+            y = y.replace(rgx, '$1' + ',' + '$2');
+        return y + z;
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

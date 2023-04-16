@@ -1,0 +1,143 @@
+﻿.righttoleft {
+    direction: rtl;
+    text-align: right
+}
+.btn-new {
+    background-color: #3734A9;
+}
+.btn-edit {
+    background-color: #FF805D;
+}
+.btn-save {
+    background-color: #84F5BC;
+}
+
+.btn-detail {
+    background-color: #0071f0;
+}
+.btn-remove{
+    background-color:transparent;
+    border:0;
+}
+
+.btn-factor {
+    background-color: #fff;
+    color:black;
+    border:1px solid black ;
+    box-shadow:none;
+}
+.titr {
+    color: #3734A9;
+    font-weight:bold;
+}
+
+.fa-arrow-color {
+    color: #3734A9;
+    font-size:medium;
+}
+/***table******/
+
+.table thead th {
+    background-color: #f0f0f8;
+}
+
+    .table thead th:first-child {
+      border-radius : 0 8px 8px 0;
+    }
+    .table thead th:last-child {
+        border-radius:  8px 0 0 8px;
+    }
+
+ .table-borderless tr,
+.table-borderless th {
+    border: 0;
+}
+    /***********paging**********************/
+.pagination {
+    display: inline-block;
+}
+
+        .pagination a {
+            border-radius : 3px;
+            color: #3734A9;
+            float: left;
+            padding: 8px 11px;
+            text-decoration: none;
+            border: 1px solid #808080;
+            font-weight:bold;
+
+        }
+
+    .pagination a.active {
+        color: #FF805D;
+    }
+
+          
+/***************select2*****************/
+.select2-results {
+    border-color: gray;
+    box-shadow: 0 0 5px gray;
+    background-color: white;
+}
+
+.select2-results__option--highlighted {
+    background-color: gray !important;
+}
+
+.select2-search__field {
+    border-color: gray;
+    box-shadow: 0 0 5px gray;
+}
+
+.select2-container .select2-selection--single {
+    box-sizing:inherit ;
+    cursor: pointer;
+    /*display:inline-block;*/
+    /*display:none;*/
+    height: 38px;
+    user-select: none;
+    -webkit-user-select: none;
+    border: 1px solid gray;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+.select2-selection__rendered {
+    margin-top:2px;
+}
+
+.select2-selection__arrow {
+    margin-top: 3px;
+}
+.select2-container:focus .select2-selection--single:focus {
+    border-color: gray;
+    box-shadow: 0 0 5px gray;
+}
+.select2-container {
+    width: 100% !important;
+}
+
+/*****************/
+.pwt-datepicker-input-element{
+    width:100%;
+}
+
+/***************************/
+.theme-black .sidemenu-collapse i {
+    color: black;
+}
+
+
+
+
+.cart-basket {
+    font-size: .6rem;
+    position: absolute;
+    top: 15px;
+    right:-1px;
+    width: 14px;
+    height: 14px;
+    color: #fff;
+    background-color: orangered;
+    border-radius: 50%;
+}

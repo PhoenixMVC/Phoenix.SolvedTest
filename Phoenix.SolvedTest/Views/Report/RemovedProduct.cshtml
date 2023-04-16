@@ -1,0 +1,145 @@
+﻿@model IEnumerable<Phoenix.SolvedTest.ViewModels.Report.GetReport>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@using X.PagedList.Web.Common
+
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{int rowNo = ((int)ViewData["pageIndex"] * 20); }
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <div class="d-flex justify-content-between  mb-3">
+                    <div class="p-3">
+                        <h2>
+                            <span class="titr">محصولات حذف شده از لیست فروش</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="body">
+
+                @if (TempData["Message"] != null)
+                {
+                    <div class="@TempData["Style"] mt-4 m-5 text-right">@TempData["Message"]</div>
+
+                }
+
+                <form asp-action="Index" method="get">
+
+                    <div class="form-actions ">
+                        <div class="row mr-md-3 mr-lg-5 ml-md-3 ml-lg-5 mt-2">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input name="SearchString" value="@ViewData["searchString"]" type="search" class="form-control" placeholder="جستجو" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-warning ">
+                                    <i class="fa fa-filter"></i>
+                                    اعمال فیلتر
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+                <div class="body table-responsive">
+                    <table class="table no-border table-borderless">
+
+                        <thead>
+                            <tr>
+                                <th>
+                                    <a asp-action="Index" asp-route-sort="@ViewData["IdSortParm"]">
+                                        ردیف
+                                    </a>
+                                </th>
+                                <th>
+                                    <a asp-action="Index" asp-route-sort="@ViewData["NameSortParm"]">
+                                        نام محصول
+                                    </a>
+                                </th>
+                                <th>آخرین قیمت</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>@(rowNo += 1)</td>
+                                    <td>@item.Name</td>
+                                    <td class="numberskama">@item.Price</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row righttoleft">
+    <div class="col-md-12 text-center">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new
+   {
+       page,
+       searchString = ViewData["searchString"],
+       sort = ViewData["sort"]
+
+   }), new PagedListRenderOptionsBase
+   {
+       LinkToPreviousPageFormat = "قبلی",
+       LinkToNextPageFormat = "بعدی",
+       MaximumPageNumbersToDisplay = 5,
+       DisplayLinkToFirstPage = PagedListDisplayMode.Never,
+       DisplayLinkToLastPage = PagedListDisplayMode.Never
+   }
+)
+
+    </div>
+</div>
+
+
+<!-- #START# Modal Form Example -->
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content rounded-5">
+                <div id="bodyModal">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts{
+
+    <script type="text/javascript">
+        $(".select").select2({
+            maximumInputLength: 20,
+            dir: "rtl",
+        });
+    </script>
+
+}
+
